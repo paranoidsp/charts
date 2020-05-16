@@ -47,7 +47,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | Parameter                               | Description                                                                           | Default                                                     |
 |:----------------------------------------|:--------------------------------------------------------------------------------------|:------------------------------------------------------------|
 | `image.repository`                      | The image repository to pull from                                                     | coredns/coredns                                             |
-| `image.tag`                             | The image tag to pull from                                                            | `v1.6.7`                                                    |
+| `image.tag`                             | The image tag to pull from                                                            | `v1.6.9`                                                    |
 | `image.pullPolicy`                      | Image pull policy                                                                     | IfNotPresent                                                |
 | `replicaCount`                          | Number of replicas                                                                    | 1                                                           |
 | `resources.limits.cpu`                  | Container maximum CPU                                                                 | `100m`                                                      |
@@ -75,6 +75,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `zoneFiles`                             | Configure custom Zone files                                                           | []                                                          |
 | `extraSecrets`                          | Optional array of secrets to mount inside the CoreDNS container                       | []                                                          |
 | `customLabels`                          | Optional labels for Deployment(s), Pod, Service, ServiceMonitor objects               | {}                                                          |
+| `podDisruptionBudget`                   | Optional PodDisruptionBudget                                                          | {}                                                          |
 | `autoscaler.enabled`                    | Optionally enabled a cluster-proportional-autoscaler for CoreDNS                      | `false`                                                     |
 | `autoscaler.coresPerReplica`            | Number of cores in the cluster per CoreDNS replica                                    | `256`                                                       |
 | `autoscaler.nodesPerReplica`            | Number of nodes in the cluster per CoreDNS replica                                    | `16`                                                        |
@@ -89,6 +90,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `autoscaler.resources.limits.memory`    | Container maximum memory for cluster-proportional-autoscaler                          | `10Mi`                                                      |
 | `autoscaler.resources.requests.cpu`     | Container requested CPU for cluster-proportional-autoscaler                           | `20m`                                                       |
 | `autoscaler.resources.requests.memory`  | Container requested memory for cluster-proportional-autoscaler                        | `10Mi`                                                      |
+| `autoscaler.configmap.annotations`      | Annotations to add to autoscaler config map. For example to stop CI renaming them     | {}                                                          |
 
 See `values.yaml` for configuration notes. Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
